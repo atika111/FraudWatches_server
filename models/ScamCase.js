@@ -11,10 +11,6 @@ const scamCaseSchema = new mongoose.Schema({
     ref: "ScamType",
     required: true,
   },
-  countryCode: {
-    type: String,
-    required: true,
-  },
   dateTime: {
     type: Date,
     required: true,
