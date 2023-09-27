@@ -9,5 +9,5 @@ const fetchEmergencyNumbersMiddleware = require('../middleware/fetchEmergencyNum
 router.get("/", scamController.getAllScams);
 
 // Post a new scam
-router.post('/', fetchEmergencyNumbersMiddleware, scamController.addScamCase)
+router.post('/',  scamController.addScamCase)
 module.exports = router;
