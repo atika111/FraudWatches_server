@@ -25,7 +25,7 @@ const scamTypesRoutes = require("./routes/scamTypeRoutes");
 
 app.use("/auth", authRoute);
 app.use("/scams", scamsRoute);
-// app.use("/scamTypes", scamTypesRoutes);
+app.use("/scamtypes", scamTypesRoutes);
 
 // Server & MongoDB Connection
 const PORT = process.env.PORT || 8080;
