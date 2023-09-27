@@ -27,10 +27,6 @@ const scamCaseSchema = new mongoose.Schema({
   },
   comments: [
     {
-      id: {
-        type: mongoose.Schema.Types.ObjectId,
-        default: mongoose.Types.ObjectId,
-      },
       userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",

@@ -8,25 +8,26 @@ const getAllScams = async (req, res) => {
     const scams = await ScamCase.find();
     res.status(200).send(scams);
   } catch (error) {
-    console.log('Error getting all scams: ', error);
-    res.status(500).send({error: "Internal server error"})
+    console.log("Error getting all scams: ", error);
+    res.status(500).send({ error: "Internal server error" });
   }
 };
 
 const addScamCase = async (req, res) => {
-const scamCase  = req.body
+  const scamCase = req.body;
+  console.log(scamCase);
 
   try {
     // Create a new scam case with the country code
-    await ScamCase.create({
-      ...scamCase
+    const newScam = await ScamCase.create({
+      ...scamCase,
     });
 
-    res.status(200).send("scamAdded", { message: "Scam case added successfully" }); // Render a success view
+    res.status(201).send({ message: "Scam case added successfully", newScam });
   } catch (error) {
-    console.log('Error adding a new scam: ', error);
-    res.status(500).send({error: "Internal server error"})
+    console.log("Error adding a new scam: ", error);
+    res.status(500).send({ error: "Internal server error" });
   }
 };
 
-module.exports = {getAllScams, addScamCase}
+module.exports = { getAllScams, addScamCase };
