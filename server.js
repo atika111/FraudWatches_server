@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 
 const run = require("./config/dbConn");
 
-const allowedOrigin = "http://localhost:5173";
+const allowedOrigin = "http://localhost:3000";
 
 const corsOptions = {
   origin: allowedOrigin,
