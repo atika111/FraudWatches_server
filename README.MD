@@ -1,0 +1,19 @@
+- backend/
+  - controllers/
+    - authController.js
+    - scamController.js
+    - scamTypeController.js
+  - models/
+    - User.js
+    - ScamType.js
+    - ScamCase.js
+  - routes/
+    - authRoutes.js
+    - scamRoutes.js
+    - scamTypeRoutes.js
+  - middleware/
+    - authMiddleware.js
+  - config/
+    - database.js
+  - app.js
+  - server.js
