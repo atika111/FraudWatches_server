@@ -22,10 +22,13 @@ app.use(cookieParser());
 const authRoute = require("./routes/authRoutes");
 const scamsRoute = require("./routes/scamRoutes");
 const scamTypesRoutes = require("./routes/scamTypeRoutes");
+const isThereRatingRoutes = require('./routes/isThereRatingRoutes');
 
 app.use("/auth", authRoute);
 app.use("/scams", scamsRoute);
 app.use("/scamtypes", scamTypesRoutes);
+app.use('/isThereRating', isThereRatingRoutes);
+
 
 // Server & MongoDB Connection
 const PORT = process.env.PORT || 8080;

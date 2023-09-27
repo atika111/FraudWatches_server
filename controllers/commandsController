@@ -1,0 +1,33 @@
+const ScamCase = require("../models/ScamCase");
+
+// Controller to add a new command
+const addCommand = async (req, res) => {
+  const { currentUserId, text } = req.body;
+
+  try {
+    // Create a new command object
+    const newCommand = {
+      userId: currentUserId,
+      text: text,
+      date: new Date(), // You can set the date to the current date
+    };
+
+    // Find the ScamCase by ID and push the new command to its comments array
+    const scam = await ScamCase.findByIdAndUpdate(
+      req.params.scamId,
+      { $push: { comments: newCommand } },
+      { new: true }
+    );
+
+    if (!scam) {
+      return res.status(404).json({ message: "ScamCase not found" });
+    }
+
+    res.status(200).json({ success: true, data: scam });
+  } catch (error) {
+    console.error("Error adding command:", error);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+};
+
+module.exports  = {addCommand}
