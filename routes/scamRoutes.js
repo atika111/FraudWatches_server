@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const scamController = require("../controllers/scamController");
-const fetchEmergencyNumbersMiddleware = require('../middleware/fetchEmergencyNumbers');
+// const fetchEmergencyNumbersMiddleware = require('../middleware/fetchEmergencyNumbers');
 
 
 // GET all scams for logged-out user
