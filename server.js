@@ -24,7 +24,7 @@ const scamsRoute = require("./routes/scamRoutes");
 const scamTypesRoutes = require("./routes/scamTypeRoutes");
 
 app.use("/auth", authRoute);
-// app.use("/scams", scamsRoute);
+app.use("/scams", scamsRoute);
 // app.use("/scamTypes", scamTypesRoutes);
 
 // Server & MongoDB Connection
