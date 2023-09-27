@@ -6,18 +6,15 @@ const User = require("../models/User");
 async function signUp(req, res) {
   try {
     const user = req.body;
-    const userImage = req?.file?.path;
-
+    
     await User.create({
       email: user.email,
       password: user.password,
-      repPassword: user.repPassword,
       firstName: user.firstName,
       lastName: user.lastName,
       nickname: user.nickname,
-      picture: userImage,
     });
-    res.status(201).send("successfully signed up!");
+    res.status(200).send("successfully signed up!");
   } catch (error) {
     if (
       error.code === 11000 &&

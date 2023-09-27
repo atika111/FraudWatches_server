@@ -13,4 +13,20 @@ const getAllScams = async (req, res) => {
   }
 };
 
-module.exports = {getAllScams}
+const addScamCase = async (req, res) => {
+const scamCase  = req.body
+
+  try {
+    // Create a new scam case with the country code
+    await ScamCase.create({
+      ...scamCase
+    });
+
+    res.status(200).send("scamAdded", { message: "Scam case added successfully" }); // Render a success view
+  } catch (error) {
+    console.log('Error adding a new scam: ', error);
+    res.status(500).send({error: "Internal server error"})
+  }
+};
+
+module.exports = {getAllScams, addScamCase}
