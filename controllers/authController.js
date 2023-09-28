@@ -6,7 +6,7 @@ const User = require("../models/User");
 async function signUp(req, res) {
   try {
     const user = req.body;
-    
+
     await User.create({
       email: user.email,
       password: user.password,
@@ -97,4 +97,17 @@ async function getUserByToken(req, res) {
   );
 }
 
-module.exports = { signUp, logIn, logOut, getUserByToken };
+async function getUsersByIds(req, res) {
+  const usersIds = req.body.usersIds;
+  console.log({ usersIds });
+  try {
+    const users = await User.find({ _id: { $in: usersIds } });
+    console.log(users);
+    return res.send(users);
+  } catch (error) {
+    console.error("Error:", error);
+    return res.status(404).send({ error: "Users not found" });
+  }
+}
+
+module.exports = { signUp, logIn, logOut, getUserByToken, getUsersByIds };
