@@ -5,6 +5,6 @@ const commandsController = require('../controllers/commandsController');
 // const isAuthenticated = require('../middleware/isAuthenticated');
 
 // POST route to add a new command
-// router.post('/', isAuthenticated, commandsController.addCommand);
+router.post('/:scamId', commandsController.addCommand);
 
 module.exports = router;

@@ -3,6 +3,7 @@ const ScamCase = require("../models/ScamCase");
 // Controller to add a new command
 const addCommand = async (req, res) => {
   const { currentUserId, text } = req.body;
+  const { scamId } = req.params; // Get the scamId from route parameters
 
   try {
     // Create a new command object
@@ -14,7 +15,7 @@ const addCommand = async (req, res) => {
 
     // Find the ScamCase by ID and push the new command to its comments array
     const scam = await ScamCase.findByIdAndUpdate(
-      req.params.scamId,
+      scamId, // Use scamId variable
       { $push: { comments: newCommand } },
       { new: true }
     );
@@ -30,4 +31,4 @@ const addCommand = async (req, res) => {
   }
 };
 
-module.exports  = {addCommand}
+module.exports = { addCommand };

@@ -23,11 +23,13 @@ const authRoute = require("./routes/authRoutes");
 const scamsRoute = require("./routes/scamRoutes");
 const scamTypesRoutes = require("./routes/scamTypeRoutes");
 const isThereRatingRoutes = require('./routes/isThereRatingRoutes');
+const commandRoute = require('./routes/commandRoutes')
 
 app.use("/auth", authRoute);
 app.use("/scams", scamsRoute);
 app.use("/scamtypes", scamTypesRoutes);
 app.use('/isThereRating', isThereRatingRoutes);
+app.use('/command', commandRoute)
 
 
 // Server & MongoDB Connection
